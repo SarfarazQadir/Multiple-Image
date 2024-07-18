@@ -43,6 +43,15 @@ class Database{
                 return false;
                 }
     }
+    public function update($id,$folder){
+        $query = "UPDATE `images` SET `image`='$folder' WHERE id = $id";
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
+        }else{
+            return false;
+        }
+    }
 }
 
 $database = new Database();
