@@ -34,6 +34,15 @@ class Database{
                 return false;
                 }
     }
+    public function edit($id){
+        $query = "SELECT * FROM `images` WHERE id= $id";
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
+            }else{
+                return false;
+                }
+    }
 }
 
 $database = new Database();

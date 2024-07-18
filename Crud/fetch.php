@@ -23,6 +23,7 @@ $result = $database->fetch();
             <th>#</th>
             <th>ID</th>
             <th>IMAGE</th>
+            <th colspan="2">ACTION</th>
         </tr>
     </thead>
     <tbody>
