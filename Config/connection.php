@@ -34,23 +34,18 @@ class Database{
                 return false;
                 }
     }
-    public function edit($id){
-        $query = "SELECT * FROM `images` WHERE id= $id";
-        $result = mysqli_query($this->conn, $query);
-        if($result){
-            return $result;
-            }else{
-                return false;
-                }
+    public function fetchById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM images WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
-    public function update($id,$folder){
-        $query = "UPDATE `images` SET `image`='$folder' WHERE id = $id";
-        $result = mysqli_query($this->conn, $query);
-        if($result){
-            return $result;
-        }else{
-            return false;
-        }
+
+    public function update($id, $images) {
+        $stmt = $this->conn->prepare("UPDATE images SET image = ? WHERE id = ?");
+        $stmt->bind_param("si", $images, $id);
+        return $stmt->execute();
     }
 }
 
