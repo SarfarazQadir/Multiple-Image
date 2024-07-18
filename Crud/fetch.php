@@ -40,6 +40,12 @@ $result = $database->fetch();
             <?php endforeach;?>
 
                 </td>
+                <td>
+                    <a href="update.php?id=<?php echo $row['id']; ?>" class="btn
+                    btn-success">UPDATE</a>
+                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn
+                    btn-danger">DELETE</a>
+                </td>
         </tr>
         <?php endforeach;?>
     </tbody>
