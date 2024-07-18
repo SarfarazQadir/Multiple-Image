@@ -25,6 +25,15 @@ class Database{
                 return false;
                 }
     }
+    public function delete($id){
+        $query = "DELETE FROM `images` WHERE `id` = '$id'";
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
+            }else{
+                return false;
+                }
+    }
 }
 
 $database = new Database();
